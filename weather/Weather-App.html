@@ -4,8 +4,8 @@
 
 	<head>
 		<meta charset = "utf-8">
-		<title>Weather App</title>
-		<meta name = "description" content = "Weather App for WebFrontend Development"/>
+		<title>Weather App Plan</title>
+		<meta name = "description" content = "Weather App Plan for WebFrontend Development"/>
 		<meta name - "viewport" content = "width = device-width">
 		
 			<script>
@@ -15,27 +15,240 @@
 	</head>
 	
 		<style>
-	
+		
+		.bold{
+		font-weight: bold;
+		}
+		
+		.helvetica{
+		font-family: Helvetica
+		}
+		
+		.swatches{
+		border-top: 1px solid black;
+		border-left: 1px solid black;
+		}
+		
+		#dark_blue_swatch{
+		border-right: 1px solid black;
+		}
+		
+		#primary{
+		border-right: 1px solid black;
+		border-left: 1px solid black;
+		padding-top: 6px;
+		padding-right: 11px;
+		padding-left: 10px;
+		padding-bottom: 1px;
+		border-collapse: collapse;
+		}
+		
+		#secondary{
+		margin-right: 3px;
+		margin-left: 3px;
+		border-right: 1px solid black;
+		padding-right: 6px;
+		padding-top: 6px;
+		padding-bottom: 2px;
+		border-collapse: collapse;
+		}
+		
+		#accent1{
+		margin-left: 5px;
+		border-right: 1px solid black;
+		padding-right: 14px;
+		padding-top: 6px;
+		padding-bottom: 1px;
+		}
+		
+		#accent2{
+		margin-left: 12px;
+		border-right: 1px solid black;
+		padding-right: 12px;
+		padding-top: 6px;
+		padding-bottom: 2px;
+		}
+		
+		
+		#color_codes{
+		border-bottom: 1px solid black;
+		margin-right: 808px;
+		}
+		
+		body{
+		background-image: url("images/background_img2.jpg");
+		background-size: contain;
+		}
+		
 		</style>
 
 	<body>
 	
 	<header>
-	<h1>First Header</h1>
+
+	<h1 style = "color: #006699";>Weather App Site Plan</h1>
+	
 	<nav>
-		<ul>
-			<li>
-			<li>
-		</ul>
+		<li><a href="index.html">Home</a></li>
 	</nav>
+
 </header>
 	<main>
-		<h2>What we are about</h2>
-		<p>Paragraph explaining what the site is about</p>
+	<h2 style = "color: #0066cc";>Purpose</h2>
+		<p>The client would like a web based weather app created. The purpose of the site is to give<br>
+		current weather conditions in 3 different ways. The initial landing page will give the weather<br> 
+		for the current location based on the Geocoding information given by the browser. The second is <br>
+		weather for 3 specific locations accessible through a dedicated link, and the third is weather for<br>
+		any location determined by a search string.</p>
+	
+	<h2 style = "color: #0066cc";>Audience</h2>
+		<p>Primary audience is adults ages 18-30.  Most will be students.  Access to the site will be split<br>
+		between mobile devices and laptops.</p>
+	
+	<h3 style = "color: #0066cc";>Audience Goals:</h3>
+		<p>College students move around quite a bit so one goal would be to quickly get the weather conditions<br>
+		for their current location as they head off to class or study. They are also often far from their homes so<br>
+		the ability to quickly get the conditions for a specific location is important as well.  The third goal <br>
+		deals with planning for travels...the ability to get weather conditions for any location will help with last<br>
+		minute packing for road trips.</p>
+	
+	<h3 style = "color: #0066cc";>Personas</h3>
+	<section id = "joe";>
+	<img src="images/cool-joe.jpg" alt="Snoopy with sunglasses">
+	<ul style="list-style-type:circle">
+		
+		<li><span class = "bold">Name:</span> Joe Cool</li>
+		
+		<li><span class = "bold">Occupation:</span> Student</li>
+		
+		<li><span class = "bold">Age:</span> Undetermined</li>
+		
+		<li><span class = "bold">Interests:</span> Traveling, seeing new things</li>
+		
+		<li><span class = "bold"> Motivation:</span> Joe is not into planning.  His last minute scrambling, whether<br>
+		it is getting to class in the morning or heading out on his latest adventure,<br>
+		has left him unprepared for weather conditions many times (He is tired of<br>
+		sleeping in the rain and snow).  He would like to be more prepared...without<br>
+		having to put much effort into it...or planning.</li>
+	
+		<li><span class = "bold">Environment:</span> Joe is comfortable using laptops and Mobile devices, he will most<br>
+		often be found on a smart phone however.  Many of the places he frequents do not have<br>
+		great signal…he is often dealing with 3G speeds</li>
+	</ul>
+	</section>
+	
+	<section id = "lucy";>
+	<img src = "images/lucy.jpg" alt = "Peanuts Lucy">
+	<ul style="list-style-type:circle">
+		<li><span class = "bold">Name:</span> Lucy van Pelt</li>
+		
+		<li><span class = "bold">Occupation:</span> Student</li>
+		
+		<li><span class = "bold">Age:</span> 18</li>
+		
+		<li><span class = "bold">Interests:</span> Giving advice, psychology</li>
+		
+		<li><span class = "bold"> Motivation:</span> Lucy is a no nonsense young lady who likes to help those around her.<br>  
+		She wants easy access to the weather conditions for many locations so that she can always be prepared to offer some<br>
+		unsolicited advice to her peers.</li>
+		
+		<li><span class = "bold">Environment:</span> Lucy has a smart phone that she uses to keep her eye on her social media<br>
+		‘friends’. She is usually not very far from her trusty laptop however. Most of her time online is spent either on the<br>
+		University network or the apartment broadband.</li>
+	</ul>
+	</section>
+	
+	<h2 style = "color: #0066cc";>Content</h2>
+		<p>All weather pages should include Location name, temperature, high, low, current weather descriptor, precipitation,<br>
+		and wind on small, and hourly temps should be added on larger screens. (See provided weather data file for more details)</p>
+	
+	<h3 style = "color: #0066cc";>Pages</h3>
+		<ol>
+			<li><span class = "bold">Home:</span> weather for the current location. Current location should be determined by using the Geolocation API of the browser. This information<br>
+			  should be passed to the <a href="https://www.wunderground.com/weather/api/" target = "_blank";>WeatherUnderground API </a> to retrieve the current conditions. </li>
+			
+			<li><span class = "bold">Franklin, Greenville, Springfield:</span> weather for each specific location. The weather for The Franklin and Greenville pages should be pulled from<br>
+			a local JSON file that will be provided. </li>
+			
+			<li><span class = "bold">Search:</span> Begins with only a search box, characters entered will cause a list of suggested matches to appear.  Selected location will pull up the weather.<br>
+			The search term from the field should be sent to the <a href="https://www.wunderground.com/weather/api/d/docs?d=autocomplete-api&MR=1" target = "_blank";>WeatherUnderground autocomplete API</a>, and the results<br>
+			used to pull the current conditions for the selected location.</li>
+		</ol>	
+	
+	<h2 style = "color: #0066cc";>Styles</h2>
+	<h3 style = "color: #0066cc";>Branding</h3>
+	
+	<p>The client provided the following initial concept for a name and logo: (You recognize that this logo could easily be re-created entirely with CSS using the right<br>
+	font and HTML entities… &#9856;  &#9861;)</p>
+	
+	<img src = "images/logo-blue.jpg" alt = "Logo">
+	
+	<h3 style = "color: #0066cc";>Typography</h3>
+	<p>The client also expressed interest in the following fonts:</p>
+	<p>Heading Font: <a href = "https://fonts.google.com/specimen/Sansita" target = "_blank">Sansita</a> From Google Fonts</p>
+	<img src = "images/sanita-alphabet.jpg" alt = "Sanita Alphabet Example">
+	<p><img src = "images/sansita-headline.jpg" alt = "Sanita Heading Example"></p>
+	
+	<p><span class = "bold";>Body Copy Font:</span> Helvetica</p>
+	<p class = "helvetica";>A B C Ć Č D Đ E F G H I J K L M N O P Q R S Š T U V W X Y Z Ž a b c č ć d đ e f g h i j k l m n o p q r s š t u v w x y z ž 1 2 3 4 5 6 7 8 9 0 ‘ ? ’ “ ! ” ( % ) [ # ] { @ } / & < - + ÷ × = > ® © $ € £ ¥ ¢ : ; , . *</p>
+	
+	<p class = "helvetica";>Lorem ipsum nonsed eicillabore essum fugit lantisit, si nis eictia num fugiam et quatquis resto eossitem quunt quae sit dolupis maio omnimo il id maio bea ipid que conseque volorem. Et facidebit vel ma doluptasitis num, ullandebit hicto beaquos tiumquis postrum cori odit eosam quiatur? Volo quid minvel earuptatem quiatur?</p>
+	
+	<h3 style = "color:#0066cc";>Colors</h3>
+	
+	<table id = "color_table";>
+	
+	<tr>
+	<img class = "swatches"; src = "images/primary-swatch.png"; alt = "Light Blue Box"> <img class = "swatches"; src = "images/secondary-swatch.png" alt = "Light Red Box"> <img class = "swatches"; src = "images/accent1-swatch.png" alt = "Yellow Box"> <img class = "swatches"; id = "dark_blue_swatch"; src = "images/accent2-swatch.png" alt = "Dark Blue Box">
+	</tr>
+	
+	<div id = "color_codes";>
+	<span class = "smalls"> <small id = "primary">Primary: #A6D8DB</small></span>
+	<span class = "smalls"> <small id = "secondary">Secondary: #F07C6C</small></span>
+	<span class = "smalls"> <small id = "accent1">Accent1: #E7EF61</small></span>
+	<span class = "smalls"> <small id = "accent2">Accent2: #47556F</small></span>
+	</div>
+	
+	</table>
+
+	<h3 style = "color:#0066cc";>Elements</h3>
+	<p>(add usability note on each element)</p>
+	<p class = "bold";>Navigation:</p>
+	<img src = "images/nav-bar.jpg" alt = "Navigation Bar">
+	<p>
+	Link normal: #4A4653<br>
+	Link visited: #4A4653<br>
+	Link hover:  #E7EF61<br>
+	Link active:  #A6D8DB<br>
+	
+	</p>
+	
+	<p class = "bold";>Opaque rounded content box:</p>
+	
+	<img src = "images/rounded-example.jpg" alt = "Example rounded content box">
+	
+	<p>
+	background-color: rgba(200,200,200,.6);<br>
+    margin: .2em auto;<br>
+    border: 1px solid;<br>
+    border-radius: 5px;<br>
+
+	</p>
+	
+	<h2 style = "color: #0066cc";>Wireframes</h2>
+	
+	<h3 style = "color: #0066cc";>Small Screen</h3>
+	
+	<img src = "images/wireframe-sm.png" alt = "Small Screen Wireframe">
+	
+	<h3 style = "color: #0066cc";>Large Screen</h3>
+	
+	<img src = "images/wireframe-lg.png" alt = "Large Screen Wireframe">
+	
 	</main>
 	
 	<footer>
-	
+	<small>Completed 5-4-17 &nbsp; &nbsp; May the 4th be with you!</small>
 	</footer>
 
 </body>
