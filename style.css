@@ -15,10 +15,13 @@ figure {
   display: block;   /* just in case we have any older browsers that don't recognize the HTML5 semantic elements */
 }
 
+
 body {
     margin: 0;  /* remove any margin from body to avoid unsightly gaps. */
     padding: 0;  /* ditto for padding  */
-    background-color: salmon;    
+    background-color: salmon;
+	background-image: url("Snow.jpg");
+	
 }
 
 main{
@@ -27,27 +30,74 @@ main{
     align-items: center;
 }
 
+
 #nav{
 	display: flex;
-	position: fixed;
-    bottom: 2em;
-    left: 0em;
-    right: 2em;
 	justify-content: center;
 	list-style-type: none;
+	font-size: 17px;
+}
+
+#city{
+	color: white;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#box1{
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background: rgba(5, 30, 30, .3);
+	font-size: 2em;
+	color: white;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#logo{
+	color: white;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#cur{
+	margin-left: 1.5em;
+}
+
+#current{
+	border-radius: 10px;
+	width: 75%;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	margin-top: .1em;
+	background: rgba(5, 30, 30, .3);
+	font-size: 1.5em;
+	color: white;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#precip{
+	margin-bottom: -.5em;
 }
 
 .title h1 + h1 {
     text-align: right;
 	margin-top: -.7em;
+	font-size: 3em;
+	color: white;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
 }
 
 footer{
-	padding-bottom: 2em;
+	padding-bottom: 0em;
 }
 
 #temp{
+	display: flex;
+	justify-content: center;
 	margin-bottom: -2em;
+	
 }
 
 
@@ -55,9 +105,6 @@ footer{
 	margin-right: 1em;
 }
 
-#current{
-
-}
 
 #wind{
 	margin-left: 3em;
