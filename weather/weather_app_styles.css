@@ -1,0 +1,113 @@
+		
+		.bold{
+		font-weight: bold;
+		}
+		
+		.helvetica{
+		font-family: Helvetica;
+		}
+		
+		.swatches{
+		border-top: 1px solid black;
+		border-left: 1px solid black;
+		}
+		
+		#dark_blue_swatch{
+		border-right: 1px solid black;
+		}
+		
+		#primary{
+		border-right: 1px solid black;
+		border-left: 1px solid black;
+		padding-top: 6px;
+		padding-right: 11px;
+		padding-left: 10px;
+		padding-bottom: 1px;
+		border-collapse: collapse;
+		}
+		
+		#secondary{
+		margin-right: 3px;
+		margin-left: 3px;
+		border-right: 1px solid black;
+		padding-right: 6px;
+		padding-top: 6px;
+		padding-bottom: 2px;
+		border-collapse: collapse;
+		}
+		
+		#accent1{
+		margin-left: 5px;
+		border-right: 1px solid black;
+		padding-right: 14px;
+		padding-top: 6px;
+		padding-bottom: 1px;
+		}
+		
+		#accent2{
+		margin-left: 12px;
+		border-right: 1px solid black;
+		padding-right: 12px;
+		padding-top: 6px;
+		padding-bottom: 2px;
+		}
+		
+		
+		#color_codes{
+		border-bottom: 1px solid black;
+		margin-right: 808px;
+		}
+		
+		body{
+		background-image: url("images/background_img2.jpg");
+		background-size: contain;
+		}
+		
+		#new_font{
+		font-family: 'Merriweather', serif;
+		}
+		
+		#colors{
+		display: flex;
+		}
+		
+		#box1{
+		background-color: blue;
+		height: 6em;
+		width: 6em;
+		}
+		
+		#box2{
+		background-color: royalblue;
+		height: 6em;
+		width: 6em;
+		}
+		
+		#box3{
+		background-color: dodgerblue;
+		height: 6em;
+		width: 6em;
+		}
+		
+		#box4{
+		background-color: darkturquoise;
+		height: 6em;
+		width: 6em;
+		}
+		
+		#box5{
+		background-color: aqua;
+		height: 6em;
+		width: 6em;
+		}
+		
+		#wireframes{
+		display: flex;
+		justify-content: space-between;
+		}
+		
+		#large_wireframe{
+		height: 60%;
+		width: 60%;
+		}
+		
