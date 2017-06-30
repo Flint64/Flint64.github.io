@@ -11,7 +11,7 @@ function getJSON(url) {
      
  //lets get some ships
 function fetchShips() {
-    var url = "http://swapi.co/api/starships/";     					
+    var url = "//swapi.co/api/starships/";     					
     getJSON(url).then(function (data) {      						
        // console.log(data);
 		var results = data.results;
