@@ -8,6 +8,7 @@ ul.topnav {
     background-color: #333333;
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 }
 
 
@@ -25,13 +26,92 @@ ul.topnav li a:hover:not(.active) {background-color: #111;}
 ul.topnav li a.active {background-color: rgb(192,11,0);}
 
 
+#facebook {
+	background-color: rgb(59,89,152);
+}
+
+#navbar{
+	display: flex;
+	justify-content: center;
+}
+
+#banner{
+	display: flex;
+	justify-content: center;
+}
+
+#banner_pic{
+	height: 60%;
+	width: 60%;
+}
+
+main{
+	display: flex;
+	justify-content: center;
+	background-color: gray;
+	height: 100%;
+	width: 80%;
+	background: rgba(0, 0, 0, .9);
+}
+
+#content{
+	display: flex;
+	justify-content: center;
+	color: white;
+}
+
+#text{
+	margin-top: 1.5em;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+
+body{
+	background-image: url("lake_background.jpg");
+	background-position: -25em -8em;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+footer{
+	color: white;
+}
+
+
+
 @media screen and (min-width: 600px){
     ul.topnav{
 	flex-direction: row;
+	width: 80%;
 	}
 	
-	#right{
+#right{
+	display: flex;
+	justify-content: flex-end;
+	flex: 0 0 auto;
+}
+
+#facebook:hover{
+	background-color: rgb(93,146,255)
+}
+
+#home_button:hover{
+	background-color: darkred;
+}	
+
+#right2{
 	display: flex;
 	justify-content: flex-end;
 	flex: 1 0 auto;
+}
+
+
+}
+
+@media screen and (max-width: 600px){
+	#banner_pic{
+		height: 100%;
+		width: 100%;
+	}
 }
