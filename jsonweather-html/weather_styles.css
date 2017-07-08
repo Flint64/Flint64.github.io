@@ -1,0 +1,93 @@
+body {margin: 0;}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#title{
+	display: flex;
+	justify-content: center;
+	background-color: #0da008;
+}
+
+#loc{
+	font-size: 4em;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#temp{
+	font-size: 3em;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#feels_like{
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#wind{
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#conditions{
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#last_checked{
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#info{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: rgba(1, 56, 0, .8);
+	border: 2px solid black;
+	margin-right: 20em;
+	margin-left: 20em;
+	height: 30em;
+	color: white;
+}
+
+body{
+	background-image: url("grass.jpg");
+}
+
+
+#logo{
+	color: white;
+}
+
+@media screen and (min-width: 600px){
+    ul.topnav{
+	flex-direction: row;
+	}
+	
+	#right{
+	display: flex;
+	justify-content: flex-end;
+	flex: 1 0 auto;
+}
+
+}

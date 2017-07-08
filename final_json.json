@@ -1,0 +1,43 @@
+{
+	"Home": {
+		"Announcements": "Announcements to go here.",
+		"About_Us": "About Us.",
+		"Contact": "Contact Information"
+	},
+	
+	"Registration": {
+	  "Instructions": "*Info about where to turn in the form",
+	  "Registration_form": "Link to registration form to print"
+		
+	},
+	
+	"Gallery": {
+	  "img1": "url",
+	  "img2": "url",
+	  "img3": "url, etc."
+		
+	},
+	
+	"Schedule": {
+	  "January": "January 7, 2017",
+	  "January_location": "Lake O The Pines",
+	  "January_registration": "Johnson Creek Park",
+	  "Febuary": "February 4, 2017",
+	  "Febuary_location": "Sam Rayburn",
+	  "Febuary_registration": "Powell Park, etc." 
+	  
+	},
+	
+	"Results": {
+	  "Team_name1": "Burgay/Cagle",
+	  "Pines_pts1": 294,
+	  "Rayburn_pts1": 291,
+	  "Fork_pts1": 297,
+	  "YTD1": "882, etc"
+	},
+	
+	"Rules": {
+	  "Rule": "There will be 8 monthly tournaments including the Classic tournament. All tournaments will be held on the 1st Saturday of the month beginning on January 7,2017. We will not fish the months of July, August, November or December. The Classic Tournament will be held in October and will represent our championship and final tournament of the year.\\n 1. To protect the integrity of TxMLF and protect our anglers, any qualifiers, or winners will be subject to a polygraph. Qualifying anglers must pass a random polygraph in order to make the cut and fish in the MLF portion of the tournament. Any Big Bass Winner will automatically have to pass a polygraph before receiving any prize money and point. Any person fishing the TxMLF is subject to a polygraph.\\n2. Rule Violation: Decisions of the Board are final and are not subject to appeal. Interpretation of the rules will be left exclusively to the Boards sole discretion. Any angler must report any violation immediately to one of the Board member. The severity of the penalty is the sole discretion of the Board. Any protest must be made in writing within 15 minutes of the closing of the scales at each tournament.\\n etc."
+	  
+	}
+}
