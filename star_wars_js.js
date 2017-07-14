@@ -21,10 +21,14 @@ function fetchShips() {
 			var listItem = document.createElement('li');				
 			var link = document.createElement('a');						
 			link.setAttribute('href', ship.url)							
-			link.innerHTML = ship.name;                                 
+			link.innerHTML = ship.name;         
+
+			
 			link.addEventListener('click',function(event){
 				event.preventDefault();
 				getShipDetails(ship.url);
+				
+				
 				document.getElementById('name').innerHTML = ship.name;
 				document.getElementById('model').innerHTML = ship.model;
 				document.getElementById('class').innerHTML = ship.starship_class;

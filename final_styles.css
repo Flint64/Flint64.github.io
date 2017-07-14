@@ -45,19 +45,25 @@ ul.topnav li a.active {background-color: rgb(192,11,0);}
 	width: 60%;
 }
 
-main{
+#content{
 	display: flex;
-	justify-content: center;
+	color: white;
+	align-items: center;
+	flex-direction: column;
+}
+
+.margin{
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+main{
+	margin: auto;
 	background-color: gray;
 	height: 100%;
 	width: 80%;
 	background: rgba(0, 0, 0, .9);
-}
-
-#content{
-	display: flex;
-	justify-content: center;
-	color: white;
+	
 }
 
 #text{
@@ -72,6 +78,23 @@ body{
 	background-position: -25em -8em;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+}
+
+#gallery{
+	color: white;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.size{
+	height: 30%;
+	width: 30%;
+}
+
+#fish3{
+	padding-bottom: 1em;
 }
 
 footer{
