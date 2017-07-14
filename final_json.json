@@ -1,13 +1,16 @@
 {
 	"Home": {
-		"Announcements": "Announcements to go here.",
-		"About_Us": "About Us.",
-		"Contact": "Contact Information"
+		"Title_Announcements": "Announcements",
+		"Title_About_Us": "About Us",
+		"Title_Contact": "Contact Information",
+		"Announcements": "The next tournament will be held at Lake O the Pines on Saturday July 9th, at 8:00am.<br><br>Please remember there is no prefishing, and anyone found doing so will be disqualified.",
+		"About_Us": "We have organized a new tournament trail that has a completely different tournament format than our area is used to. It will be exciting, fun, and profitable. Our flier/brochure pretty well spells out our format, but our intent is to have developed a trail that is affordable, but also set high enough, that with the right interest will have a good payout.<br><br>For example, 100 boats would pay out $7,000 for 1st, and pay a full 10 places. Big Bass will pay after the qualifying round no matter how big or small it is. (No carry over!) 200 boats will be a great payout, so spread the word!<br><br>The tournaments where we have done this format have been extremely exciting and fun!<br><br>We look forward to seeing you in January. Please call with any questions.<br><br>Just go Fishin'",
+		"Contact": "If you have any questions or concerns, please contact:<br><br>Mike Johnson: (555)-555-5555<br>Bryce Smithers: (555)-555-5555<br>Buddy Hyde: (555)-555-5555<br>Quincy Locke: (555)-555-5555"
 	},
 	
 	"Registration": {
-	  "Instructions": "*Info about where to turn in the form",
-	  "Registration_form": "Link to registration form to print"
+	  "Instructions": "You can now register for the tournament by printing out the entry form below and turning it in on-site at the first event. See the  <a href=\"final_schedule.html\" id = \"schedual\">Schedule<\/a> for details.",
+	  "Registration_form": "<h2><a href=\"\">Registration Form<\/a><\/h2>"
 		
 	},
 	
@@ -37,7 +40,7 @@
 	},
 	
 	"Rules": {
-	  "Rule": "&emsp;&emsp;There will be 8 monthly tournaments including the Classic tournament. All tournaments will be held on the 1st Saturday of the month beginning on January 7,2017. We will not fish the months of July, August, November or December. The Classic Tournament will be held in October and will represent our championship and final tournament of the year.\n 1. To protect the integrity of TxMLF and protect our anglers, any qualifiers, or winners will be subject to a polygraph. Qualifying anglers must pass a random polygraph in order to make the cut and fish in the MLF portion of the tournament. Any Big Bass Winner will automatically have to pass a polygraph before receiving any prize money and point. Any person fishing the TxMLF is subject to a polygraph.\n2. Rule Violation: Decisions of the Board are final and are not subject to appeal. Interpretation of the rules will be left exclusively to the Boards sole discretion. Any angler must report any violation immediately to one of the Board member. The severity of the penalty is the sole discretion of the Board. Any protest must be made in writing within 15 minutes of the closing of the scales at each tournament.\n etc."
+	  "Rule": "&emsp;&emsp;There will be 8 monthly tournaments including the Classic tournament. All tournaments will be held on the 1st Saturday of the month beginning on January 7,2017. We will not fish the months of July, August, November or December. The Classic Tournament will be held in October and will represent our championship and final tournament of the year.<br><br>1. To protect the integrity of TxMLF and protect our anglers, any qualifiers, or winners will be subject to a polygraph. Qualifying anglers must pass a random polygraph in order to make the cut and fish in the MLF portion of the tournament. Any Big Bass Winner will automatically have to pass a polygraph before receiving any prize money and point. Any person fishing the TxMLF is subject to a polygraph.<br><br>2. Rule Violation: Decisions of the Board are final and are not subject to appeal. Interpretation of the rules will be left exclusively to the Boards sole discretion. Any angler must report any violation immediately to one of the Board member. The severity of the penalty is the sole discretion of the Board. Any protest must be made in writing within 15 minutes of the closing of the scales at each tournament.<br><br> etc."
 	  
 	}
 }

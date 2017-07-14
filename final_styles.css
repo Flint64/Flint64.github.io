@@ -52,6 +52,16 @@ ul.topnav li a.active {background-color: rgb(192,11,0);}
 	flex-direction: column;
 }
 
+#border1{
+	width: 80%;
+	border: .5px solid white;
+}
+
+#border2{
+	width: 80%;
+	border: .5px solid white;
+}
+
 .margin{
 	margin-left: 2em;
 	margin-right: 2em;
@@ -63,14 +73,39 @@ main{
 	height: 100%;
 	width: 80%;
 	background: rgba(0, 0, 0, .9);
-	
 }
 
-#text{
-	margin-top: 1.5em;
-	margin-left: 1em;
-	margin-right: 1em;
+#main_schedule{
+	margin-top: -1.5em;
 }
+
+#schedule_title{
+	display: flex;
+	justify-content: center;
+	padding-top: .5em;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#schedule_div{
+	color: white;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #333333;
+}
+
+
 
 
 body{

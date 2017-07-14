@@ -13,8 +13,15 @@ function getURLParameter(name) {
 
 function buildHome(info) {
 	document.getElementById("h1_1").style.display = "none";
-	document.getElementById("h2_1").style.display = "none";
+	document.getElementById("h2_1").style.display = "unset";
+	document.getElementById("h2_2").style.display = "unset";
+	document.getElementById("h2_3").style.display = "unset";
+	document.getElementById("border1").style.display = "unset";
+	document.getElementById("border2").style.display = "unset";
 	
+	document.getElementById("h2_1").innerHTML = info.Title_Announcements;
+	document.getElementById("h2_2").innerHTML = info.Title_About_Us;
+	document.getElementById("h2_3").innerHTML = info.Title_Contact;
 	document.getElementById("p1").innerHTML = info.Announcements;
 	document.getElementById("p2").innerHTML = info.About_Us;
 	document.getElementById("p3").innerHTML = info.Contact;
@@ -23,6 +30,10 @@ function buildHome(info) {
 function buildRegistration(info) {
 	document.getElementById("h1_1").style.display = "none";
 	document.getElementById("h2_1").style.display = "none";
+	document.getElementById("h2_2").style.display = "none";
+	document.getElementById("h2_3").style.display = "none";
+	document.getElementById("border1").style.display = "none";
+	document.getElementById("border2").style.display = "none";
 	  
 	document.getElementById("p1").innerHTML = info.Instructions;
 	document.getElementById("p2").innerHTML = info.Registration_form;
@@ -31,6 +42,11 @@ function buildRegistration(info) {
 
 function buildRules(info){
 	document.getElementById("h1_1").style.display = "unset";
+	document.getElementById("h2_1").style.display = "none";
+	document.getElementById("h2_2").style.display = "none";
+	document.getElementById("h2_3").style.display = "none";
+	document.getElementById("border1").style.display = "none";
+	document.getElementById("border2").style.display = "none";
 		
 		document.getElementById("h1_1").innerHTML = "Texas Extreme Fishing Rules";
 		document.getElementById("p1").innerHTML = info.Rule;
@@ -38,25 +54,28 @@ function buildRules(info){
 		document.getElementById("p3").innerHTML = "";
 }
 		ajaxFromLocalJson();
-		
-				
-/* function getPage(page){
-	if (page == "registration"){
-		buildRegistration(data.Registration);
-	} 
-	else if (page == "rules"){
-		buildRules(data.Rules);
-	}
-} */
 	
 	
 function ajaxFromLocalJson(){
 	getJSON("final_json.json").then(function (data){
 		var page = getURLParameter("page");
 		console.log(page);
-		//getPage(page);
+		getPage(page);
 		var result = data.results;
+		
+function getPage(page){
+	if (page == "registration"){
+		buildRegistration(data.Registration);
+	} 
+	else if (page == "rules"){
+		buildRules(data.Rules);
+	}
+	else if (page == "home"){
 		buildHome(data.Home);
+	}
+}
+		
+		
 
 			
 			home_button.addEventListener('click',function(event){
