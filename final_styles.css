@@ -123,13 +123,24 @@ body{
 	justify-content: space-around;
 }
 
-.size{
-	height: 30%;
-	width: 30%;
+.fish{
+	height: 200px;
+	width: 200px;
+	margin-top: 2em;
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-bottom: 2em;
 }
 
-#fish3{
-	padding-bottom: 1em;
+.fish:hover{
+	border: 1px solid white;
+	border-radius: .5em;
+}
+
+#gallery_title{
+	color: white;
+	text-align: center;
+	padding-top: 1em;
 }
 
 footer{

@@ -25,6 +25,7 @@ function buildHome(info) {
 	document.getElementById("p1").innerHTML = info.Announcements;
 	document.getElementById("p2").innerHTML = info.About_Us;
 	document.getElementById("p3").innerHTML = info.Contact;
+	
 }
 
 function buildRegistration(info) {
@@ -55,7 +56,6 @@ function buildRules(info){
 }
 		ajaxFromLocalJson();
 	
-	
 function ajaxFromLocalJson(){
 	getJSON("final_json.json").then(function (data){
 		var page = getURLParameter("page");
@@ -75,23 +75,26 @@ function getPage(page){
 	}
 }
 		
-		
+	window.onload = function(){
+		page = "home"
+		getPage(page);
+	}
 
 			
 			home_button.addEventListener('click',function(event){
-				event.preventDefault();
+			//	event.preventDefault();
 				buildHome(data.Home);
 			
 			});
 	  
 			registration.addEventListener('click',function(event){
-				event.preventDefault();
+			//	event.preventDefault();
 				buildRegistration(data.Registration);
 	  
 	  });
 	  
 			rules.addEventListener('click',function(event){
-				event.preventDefault();
+			//	event.preventDefault();
 				buildRules(data.Rules);
 	  
 	  });
