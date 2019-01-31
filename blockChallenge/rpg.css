@@ -1,0 +1,133 @@
+body{
+    background-color: lightgray;
+}
+
+#storyArea {
+    background-color: lightgoldenrodyellow;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    height: 22em;
+    overflow-y: scroll;
+}
+
+#storyArea p::before{
+    content: '\2003';
+}
+
+#userArea{
+    height: 40%;
+    background-color: lightgrey;
+    padding-bottom: 0px;
+    margin-bottom: 7em;
+    margin-top: .5em;
+    text-align: center;
+}
+
+#statusBar{
+    position: fixed;
+    background-color: mediumslateblue;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    height: 6em;
+    transition: height .5s;
+}
+
+#menu{
+    width: 4em;
+    height: 2em;
+    border-radius: 50%;
+    border: 1px solid grey;
+    outline: none;
+}
+
+#menuButton{
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    padding-bottom: 5px;
+}
+
+#menuChoices{
+    display: flex;
+    text-align: center;
+}
+
+#menuChoices button{
+    width: 10em;
+    border-radius: 5px;
+    outline: 1px solid black;
+    margin-bottom: 5px;
+}
+
+#choiceButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;  
+}
+
+#choiceButtons button{
+    transition: opacity .5s;
+}
+
+button{
+    width: 90%;
+    margin-top: 5px;
+    height: 2em;
+}
+
+.bar{
+    border: 1px solid black;
+    height: 5px;
+    width: 100px;
+    margin-top: 5px;
+}
+/*
+    You should take some stamina damage when 
+    getting direct hp damage too, maybe half or something
+
+    Add a settings button to change font family and font size
+*/
+#hpbar2{
+    height: 5px;
+    width: 80%;
+    background: red;
+}
+
+#hpbar{
+    height: 5px;
+    width: 100px;
+    background: grey;
+}
+
+#mp{
+    background: blue;
+}
+
+#sp{
+    background: green;
+}
+
+#infoBars{
+    display: flex;
+}
+
+#infoBars span {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+#infoBars p {
+    margin-bottom: 0;
+}
+
+@media only screen and (min-height: 600px) {
+      #storyArea{
+        height: 25em;
+    }
+  }
