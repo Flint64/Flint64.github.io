@@ -67,7 +67,8 @@ body{
 #choiceButtons{
     display: flex;
     flex-direction: row;
-    justify-content: center;  
+    justify-content: center;
+    align-content: center;
 }
 
 #choiceButtons button{
@@ -114,6 +115,7 @@ button{
 
 #infoBars{
     display: flex;
+    justify-content: center;
 }
 
 #infoBars span {
