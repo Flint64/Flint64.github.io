@@ -20,7 +20,7 @@ body{
     height: 40%;
     background-color: lightgrey;
     padding-bottom: 0px;
-    margin-bottom: 7em;
+    margin-bottom: 6em;
     margin-top: .5em;
     text-align: center;
 }
@@ -69,14 +69,27 @@ body{
     flex-direction: row;
     justify-content: center;
     align-content: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    transition: opacity .5s;
+    width: 50%;
+    margin-left: 5em;
 }
 
-#choiceButtons button{
-    transition: opacity .5s;
+#choiceLeft{
+    margin-right: 5px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#choiceRight{
+    margin-left: 5px;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 button{
-    width: 90%;
+    width: 100%;
     margin-top: 5px;
     height: 2em;
 }
