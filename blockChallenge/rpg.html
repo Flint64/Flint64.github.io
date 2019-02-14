@@ -9,29 +9,19 @@
 </head>
 
 <body>
-
     <header>
     </header>
-
     <main>
-
         <div id=storyArea>
-           
+        
         </div>
-
         <div id=userArea>
             <div id=choiceButtons>
                 <div id = "choiceLeft">
-                <!--
-                    <button>Choice 1</button>
-                    <button>Choice 2</button>
-                -->
+                
                 </div>
                 <div id = "choiceRight">
-                <!--
-                    <button>Choice 3</button>
-                    <button>Choice 4</button>
-                -->
+                
                 </div>
             </div>
         </div>
@@ -40,7 +30,7 @@
             <span>
                 <div id="infoBars">
                     <span>
-                        <p>HP <span>80/100</span></p>
+                        <p>HP<span id = "currentHP">100</span><span id = "maxHP">/ 100</span></p>
                         <div class="bar" id="hp">
                             <div id="hpbar">
                                 <div id="hpbar2"></div>
@@ -48,27 +38,64 @@
                         </div>
                     </span>
                     <span>
-                        <p>MP 20/20</p>
-                        <div class="bar" id="mp"></div>
+                        <p>MP<span id = "currentMP">20</span><span id = "maxMP">/ 20</span></p>
+                        <div class="bar" id="mp">
+                            <div id="mpbar">
+                                <div id="mpbar2"></div>
+                            </div>
+                        </div>
                     </span>
                     <span>
-                        <p>SP 50/50</p>
-                        <div class="bar" id="sp"></div>
+                        <p>SP<span id = "currentSP">50</span><span id = "maxSP">/ 50</span></p>
+                        <div class="bar" id="sp">
+                            <div id="spbar">
+                                <div id="spbar2"></div>
+                            </div>
+                        </div>
                     </span>
                 </div>
                 <div id="menuButton"><button id="menu">Menu</button></div>
+
             <div id = "menuChoices">
-                    <div>
-                        <button>Save</button>
-                        <button>Load</button>
-                    </div>
-                    <div>
-                        <button>Inventory</button>
-                        <button id = "settings">Settings</button>
-                    </div>
+            <div>
+                <button id = "saveGame">Save</button>
+                <button id = "loadGame">Load</button>
             </div>
+            <div>
+                <button id = "inventory">Inventory</button>
+                <button id = "settings">Settings</button>
+            </div>
+            </div>
+
+            <div id = "testDiv">
+                <div id = "settingsDiv" style = "display: none">
+                    <div>
+                        <button id = "font16">16pt font (default)</button>
+                        <button id = "font20">20pt font</button>
+                        <button id = "reset">Reset</button>
+                    </div>
+                </div>
+                <div id = "inventoryDiv" style = "display: none">
+                    <ul id = "leftList">
+                        <li id = "potions"></li>
+                        <li id = "ethers"></li>
+                        <li id = "salves"></li>
+                        <li id = "stimulants"></li>
+                        <li id = "gems"></li>
+                    </ul>
+                    <ul id = "rightList" dir="rtl">
+                        <li><button id ="usePotion">Use Potion</button></li>
+                        <li><button id = "useEther">Use Ether</button></li>
+                        <li><button id = "useStim">Use Stimulant</button></li>
+                        <li><button id = "useWhiteGem" disabled = "true">Use White Gem</button></li>
+                    </ul>
+                </div>
+                <button style="display: none" id = "closeMenu">Close</button>
+                <button style="display: none" id = "closeItems">Close</button>
+            </div>
+
         </span>
-        </div>
+    </div>
 
     </main>
 

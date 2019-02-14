@@ -18,7 +18,7 @@ body{
 
 #userArea{
     height: 40%;
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
     padding-bottom: 0px;
     margin-bottom: 6em;
     margin-top: .5em;
@@ -52,9 +52,15 @@ body{
     padding-bottom: 5px;
 }
 
+#testDiv{
+    display: inline;
+}
+
 #menuChoices{
     display: flex;
     text-align: center;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 #menuChoices button{
@@ -73,7 +79,25 @@ body{
     padding-bottom: 0;
     transition: opacity .5s;
     width: 50%;
-    margin-left: 5em;
+    margin: auto;
+}
+
+#choiceButtons button{
+    height: 100%;
+}
+
+#closeMenu{
+    width: 30%;
+    margin: auto;
+    border-radius: 5px;
+    outline: 1px solid black;
+}
+
+#closeItems{
+    width: 30%;
+    margin: auto;
+    border-radius: 5px;
+    outline: 1px solid black;
 }
 
 #choiceLeft{
@@ -88,10 +112,31 @@ body{
     padding-bottom: 0;
 }
 
+#choiceLeft button{
+    width: 10em;
+}
+
+#choiceRight button{
+    width: 10em;
+}
+
 button{
     width: 100%;
     margin-top: 5px;
     height: 2em;
+}
+
+#settingsDiv{
+    display: flex;
+    text-align: center;
+    margin-bottom: 15em;
+}
+
+#settingsDiv button{
+    width: 50%;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    outline: 1px solid black;
 }
 
 .bar{
@@ -108,8 +153,20 @@ button{
 */
 #hpbar2{
     height: 5px;
-    width: 80%;
+    width: 100%;
     background: red;
+}
+
+#mpbar2{
+    height: 5px;
+    width: 100%;
+    background: blue;
+}
+
+#spbar2{
+    height: 5px;
+    width: 100%;
+    background: green;
 }
 
 #hpbar{
@@ -118,12 +175,16 @@ button{
     background: grey;
 }
 
-#mp{
-    background: blue;
+#mpbar{
+    height: 5px;
+    width: 100px;
+    background: grey;
 }
 
-#sp{
-    background: green;
+#spbar{
+    height: 5px;
+    width: 100%;
+    background: grey;
 }
 
 #infoBars{
@@ -139,6 +200,45 @@ button{
 
 #infoBars p {
     margin-bottom: 0;
+}
+
+ul{
+    color: lightgoldenrodyellow;
+    width: 50%;
+    list-style: none;
+    font-size: 18px;
+    text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+#inventoryDiv{
+    width: 100%;
+    display: flex;
+    margin-bottom: 14em;
+    border: 1px solid black;
+    box-shadow: 0px 10px 10px black;
+}
+
+#leftList{
+    width: 50%;
+    margin-right: 5px;
+}
+
+#rightList{
+    width: 50%;
+    margin-left: 5px;
+}
+
+#potions{
+    margin: 0;
+}
+
+#rightList button{
+    border-radius: 5px;
+    outline: 1px solid black;
 }
 
 @media only screen and (min-height: 600px) {

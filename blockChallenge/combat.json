@@ -1,0 +1,43 @@
+[
+    {
+        "id": "weakSlime",
+        "displayName": "Weak Slime",
+        "run": true,
+        "health": 10,
+        "mana": 0,
+        "defense": 0,
+        "attack": 2,
+
+        "specialAttacks": [
+         
+        ],
+
+        "spells": [
+
+        ]
+      },
+    
+     {
+        "id": "zombie",
+        "displayName": "Zombie",
+        "run": true,
+        "health": 20,
+        "mana": 10,
+        "defense": 2,
+        "attack": 4,
+
+        "specialAttacks": [
+         
+        ],
+
+        "spells": [
+            {
+                "decay":
+                {
+                    "damage": 5,
+                    "manaCost": 4
+                }
+            }
+        ]
+      }
+]

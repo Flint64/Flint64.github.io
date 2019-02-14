@@ -1,0 +1,120 @@
+[
+{
+    "id": "start",
+    "text": [
+      "Ged sat in the tavern, his back to the entrance, silently nursing his drink and watching the other patrons. After a time of sitting in silence, he heard his name drifting toward him from one of the many conversations being held in the small bar.",
+      "- “’an ‘ol Ged, he’ll certainly take care of us iffin things go south tomorrow, won’t he? Eh Ged?”",
+      "Ged looked up from his mug, an amused look on his face. “You lot going hunting tomorrow, then?” he asked, shifting his chair to better face Gunther.",
+      "“Aye, we are,” Gunther said, grinning. “ I ’eard tell that a massive boar ‘as been sighted out by the crags. We ‘ope to bag ‘em on the morrow. I was just makin sure that you’d be here to put us back together should he get the better ‘o us, and all. Or if we run into that pack o goblins wanderin’ around out there. Nasty buggers, them goblins.”",
+      "“Yes, I’ll be around tomorrow. It’s my day off at the temple, but if you need me, just send for Agda. She’ll be able to find me.” Said Ged, raising his mug. “But here’s to not having to put you lot back together again!”",
+      "“Hear hear! I’ll drink to that!” Gunther’s table erupted into cheers. Ged smiled, and stood, grabbing his cloak hanging on the peg by the door. Putting on his cloak, he stepped into the doorway, his back to the tavern, and raised his hand in farewell. “I’m turning in for the night. Hopefully I won’t see you lot tomorrow.” With that, he stepped into the cold night air, drawing his cloak closer around him as he began the walk home."
+    ],
+    "choice":[
+      {
+       "id": "home",
+       "title":"Continue"
+      }
+    ]
+  },
+
+  {
+    "id": "home",
+    "text": [
+      "Ged made it home. There is a knock on his door.",
+      "What should he do?"
+    ],
+    "choice":[
+      {
+       "id": "doorAnswered",
+       "title":"Answer it"
+      },
+      {
+      "id": "doorIgnored",
+      "title": "Ignore it"
+      }
+    ]
+  },
+
+  {
+    "id": "doorAnswered",
+    "text": [
+      "You answer the door. The guy has stuff to say.",
+      "He tells you about a guy from ged's past. This probably goes on for a while so it continues."
+    ],
+    "choice":[
+      {
+       "id": "leaveOrTutorial",
+       "title":"Continue"
+      }
+    ]
+  },
+
+  {
+    "id": "doorIgnored",
+    "text": [
+      "The guy keeps knocking. Ged is annoyed.",
+      "Person at door shouts name from Ged's past.",
+      "Ged hurries and opens door"
+    ],
+    "choice":[
+      {
+       "id": "surpriseEntry",
+       "title":"Continue"
+      }
+    ]
+  },
+
+  {
+    "id": "surpriseEntry",
+    "text": [
+      "Ged is surprised that the guy knows about guy from past",
+      "He wants to know how the guy knows",
+      "so the guy tells him. Possibly continue here if too much"
+    ],
+    "choice":[
+      {
+       "id": "leaveOrTutorial",
+       "title":"Continue"
+      }
+    ]
+  },
+
+
+  {
+    "id": "leaveOrTutorial",
+    "text": [
+      "At this point you're probably going to have to choose if you want to leave now or get equipped",
+      "Not really sure what all that entails. So if you leave, you set out and probably run into a fight.",
+      "If you choose to get equipped, maybe it's a tutorial on inventory and what equipment you have and junk"
+    ],
+    "choice":[
+      {
+       "id": "embark",
+       "title":"Set out"
+      },
+      {
+      "id": "tutorial",
+      "title": "Get equipped (tutorial)"
+      }
+    ]
+  },
+
+  {
+    "id": "tutorial",
+    "text": [
+      "Tutorial:",
+      "Potions: Restore 50 hit points",
+      "Ethers: Restore 10 mana points",
+      "Stimulants: Restore 15 stamina points",
+      "White Gems: 100% chance to flee from any battle (excepting bosses). Consumed on use.",
+      "Salves: Removes poison",
+      ""
+    ],
+    "choice":[
+      {
+       "id": "combatTutorial",
+       "title":"Go to Combat Tutorial"
+      }
+    ]
+  }
+]
