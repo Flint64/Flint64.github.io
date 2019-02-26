@@ -39,6 +39,8 @@ let useEther = document.getElementById("useEther");
 let useStim = document.getElementById("useStim");
 let useWhiteGem = document.getElementById("useWhiteGem");
 let closeItems = document.getElementById("closeItems");
+let activeCombat = false;
+let enemyIndex = "";
 
 //Should only be changing the max values on level up
 var character = {
@@ -57,6 +59,11 @@ var character = {
   salves: 2     //Cures poison
 };
 
+var enemy = {
+  maxHP: 0,
+  currentHP: 0
+};
+//TODO: Figure out how to make your SP take 30 or 20 or some % of the total HP damage you take
 function calcHP(){
   var result = (character.hp / character.maxHP) * 100;
   result = Math.trunc(result) + "%";
@@ -75,7 +82,8 @@ function calcSP(){
   return result;
 }
 
-var combatButtons = ['Attack', 'Item', 'Magic', 'Flee'];
+let combatButtons = ['Melee', 'Item', 'Magic', 'Flee'];
+let specialAttacks = ['Attack', 'Holy Strike', 'Critical Bash', 'Back'];
 
 //Allows me to change and watch for changes via calling
 //changeStat.hp or some other value from the character obj above
@@ -92,6 +100,13 @@ var combatButtons = ['Attack', 'Item', 'Magic', 'Flee'];
 *   changeStat will have to be changed in combat whenever a value changes at all
 *   to ensure the bars and values read correctly.
   *//////////////////////////////////////////////////////////////////////////////
+
+var enemyStat = new Proxy(enemy, {
+  set: function (target, key, value) {
+    target[key] = value;
+    return value;
+  }
+});
 
 var changeStat = new Proxy(character, {
   set: function (target, key, value) {
@@ -214,15 +229,31 @@ usePotion.addEventListener("touchend", e => {
     //Do nothing is hp is full
     return;
   }
-  if (character.potions - 1 >= 0){    
+  if (character.potions - 1 >= 0){
     if (character.hp + 50 <= character.maxHP){
         changeStat.hp += 50;
         character.potions -= 1;
         potions.innerHTML = "Potions: " + character.potions;
+        if (activeCombat === true){
+          statusBar.style.height = "3.5em";
+          useWhiteGem.disabled = true;
+          setTimeout(function(){
+            fight(enemyIndex);
+            storyArea.scrollTo(0,document.body.scrollHeight);
+        }, 750);
+        }
     } else {
         changeStat.hp = character.maxHP;
         character.potions -= 1;
         potions.innerHTML = "Potions: " + character.potions;
+        if (activeCombat === true){
+          statusBar.style.height = "3.5em";
+          useWhiteGem.disabled = true;
+          setTimeout(function(){
+            fight(enemyIndex);
+            storyArea.scrollTo(0,document.body.scrollHeight);
+        }, 750);
+        }
     } 
   }
 });
@@ -240,10 +271,26 @@ usePotion.addEventListener("touchend", e => {
           changeStat.mp += 10;
           character.ethers -= 1;
           ethers.innerHTML = "Ethers: " + character.ethers;
+          if (activeCombat === true){
+            statusBar.style.height = "3.5em";
+            useWhiteGem.disabled = true;
+            setTimeout(function(){
+              fight(enemyIndex);
+              storyArea.scrollTo(0,document.body.scrollHeight);
+          }, 750);
+          }
       } else {
           changeStat.mp = character.maxMP;
           character.ethers -= 1;
           ethers.innerHTML = "Ethers: " + character.ethers;
+          if (activeCombat === true){
+            statusBar.style.height = "3.5em";
+            useWhiteGem.disabled = true;
+            setTimeout(function(){
+              fight(enemyIndex);
+              storyArea.scrollTo(0,document.body.scrollHeight);
+          }, 750);
+          }
       } 
     }
   });
@@ -261,10 +308,26 @@ usePotion.addEventListener("touchend", e => {
           changeStat.sp += 15;
           character.stimulants -= 1;
           stimulants.innerHTML = "Stimulants: " + character.stimulants;
+          if (activeCombat === true){
+            statusBar.style.height = "3.5em";
+            useWhiteGem.disabled = true;
+            setTimeout(function(){
+              fight(enemyIndex);
+              storyArea.scrollTo(0,document.body.scrollHeight);
+          }, 750);
+          }
       } else {
           changeStat.sp = character.maxSP;
           character.stimulants -= 1;
           stimulants.innerHTML = "Stimulants: " + character.stimulants;
+          if (activeCombat === true){
+            statusBar.style.height = "3.5em";
+            useWhiteGem.disabled = true;
+            setTimeout(function(){
+              fight(enemyIndex);
+              storyArea.scrollTo(0,document.body.scrollHeight);
+          }, 750);
+          }
       } 
     }
   });
@@ -343,11 +406,11 @@ usePotion.addEventListener("touchend", e => {
     x.style.backgroundColor = x.style.backgroundColor == "lightgrey" ? "red" : "lightgrey";
   }
 
-  //Call this whenever you get hurt in battle
-  function hit(){
+  //Call this whenever you get hurt in battle. Takes paramater of damage taken
+  function hit(damage){
    var flash = setInterval(setColor, 50);
    var body = document.body;
-  //  changeStat.hp -= 20;
+    changeStat.hp -= damage;
    setTimeout(function(){
      clearInterval(flash);
        body.style.background = "lightgrey";
@@ -358,13 +421,17 @@ usePotion.addEventListener("touchend", e => {
 *   Load the combat attack, magic, item and flee buttons,
 *   and set functions on them via pass in id to switch
   *//////////////////////////////////////////////////////////////////////////////
-  function loadCombatButtons(){
+  function loadCombatButtons(enemyChoice){
+    
+    choiceLeft.innerHTML = "";
+    choiceRight.innerHTML = "";
+    
     for(k in combatButtons){
       var button = document.createElement("button");
       var text = document.createTextNode(combatButtons[k]);
       button.setAttribute("id", combatButtons[k].toLocaleLowerCase());
       button.appendChild(text);
-      button.addEventListener("touchend", e => { combatID(event); });
+      button.addEventListener("touchend", e => { combatID(event, enemyChoice); });
       button.style.width = "8em";
       button.style.height = "3.5em";
       if (k < 2){
@@ -373,23 +440,172 @@ usePotion.addEventListener("touchend", e => {
         choiceRight.appendChild(button);
       }
     }
-    //After loading the buttons, load the enemy text
-    var p = document.createElement("p");
-    var content = document.createTextNode("A " + combat[0].displayName + " oozes up before you!");
-    p.appendChild(content);
-    storyArea.appendChild(p);
   }
+
+  /*/////////////////////////////////////////////////////////////////////////////
+*   Load in the special attack buttons when you press the attack button
+  *//////////////////////////////////////////////////////////////////////////////
+  function loadAttackButtons(enemyIndex){
+
+    if (storyArea.hasChildNodes()){
+      choiceLeft.innerHTML = "";
+      choiceRight.innerHTML = "";
+    }
+
+    for(k in specialAttacks){
+      var button = document.createElement("button");
+      var text = document.createTextNode(specialAttacks[k]);
+      button.setAttribute("id", specialAttacks[k].toLocaleLowerCase());
+      button.appendChild(text);
+      button.addEventListener("touchend", e => { combatID(event, enemyIndex); });
+      button.style.width = "8em";
+      button.style.height = "3.5em";
+      if (k < 2){
+        choiceLeft.appendChild(button);
+      } else {
+        choiceRight.appendChild(button);
+      }
+    }
+  }
+
+  /*/////////////////////////////////////////////////////////////////////////////
+*   The encounter function chooses the enemy you run in to and
+*   introduces it and passes said index to the fight function, which
+*   has the enemy actually attack you
+  *//////////////////////////////////////////////////////////////////////////////
+    // function encounter(){
+  //     let enemyChoice = Math.floor((Math.random() * 2));
+  //     var p = document.createElement("p");
+  //     var content = "";
+
+  //     let enemyHP = combat[enemyChoice].health;
+
+  //   switch (enemyChoice){
+  //     case 0:
+  //       content = document.createTextNode("A " + combat[enemyChoice].displayName + " oozes up before you!");
+  //     break;
+
+  //     case 1:
+  //       content = document.createTextNode("A " + combat[enemyChoice].displayName + " shambles toward you!");
+  //     break;
+  //   }
+  //    p.appendChild(content);
+  //    storyArea.appendChild(p);
+  //   //After loading in the enemy choice, call the fight function, passing in enemyHP & index
+  //   // that has the enemy try to attack 
+  //    fight(enemyHP, enemyChoice);
+  // }
+
+     function fight(enemyChoice){
+
+      if (enemyStat.currentHP === 0){
+        console.log("enemy gets a free attack then dies");
+        //endCombat()
+        console.log("You should take more damage here");
+        return;
+      }
+
+      var p = document.createElement("p");
+      var content = "";
+
+      let hitChance = Math.floor(Math.random() * 100) + 1;
+      if (hitChance <=80){ //80% chance to hit
+        content = document.createTextNode(combat[enemyChoice].displayName + " attacks!");
+        p.appendChild(content);
+        storyArea.appendChild(p);
+        let damage = (Math.floor(Math.random() * combat[enemyChoice].attack) + 1);
+        hit(damage); //If enemy hits you take damge
+        content = document.createTextNode(" You take " + damage + " damage!");
+        p.appendChild(content);
+        storyArea.appendChild(p);
+      } else { //Otherwise display miss
+        content = document.createTextNode(combat[enemyChoice].displayName + " attacks but misses!");
+        p.appendChild(content);
+        storyArea.appendChild(p);
+      }
+     }
+
+     function attack(enemyChoice){
+      var p = document.createElement("p");
+      var content = document.createTextNode("You attack!");
+      p.appendChild(content);
+      storyArea.appendChild(p);
+
+      let hitChance = Math.floor(Math.random() * 100) + 1;
+      if (hitChance <=80){ //80% chance to hit
+        let damage = (Math.floor(Math.random() * 8) + 1);
+        let deduction = combat[enemyChoice].defense;
+        damage -= deduction;
+        //To make sure you can't deal less than 0 damage
+        if (damage <= 0){
+          damage = 1;
+        }
+        // let damage = 10;
+        content = document.createTextNode(" Hit! You deal " + damage + " damage!");
+        
+        console.log("before " + enemyStat.currentHP);
+        enemyStat.currentHP -= damage;
+        console.log("after " + enemyStat.currentHP);
+
+        p.appendChild(content);
+        storyArea.appendChild(p);
+        
+        if (enemyStat.currentHP < 0){
+          console.log("enemy is dead");
+          // endCombat(); //undefined
+          //TODO: This needs to display to the screen that the enemy is dead and
+          // not return to enemy getting free attack
+          // return;
+        }
+
+        // TODO: create an inventory object to hold inventory
+        // stuff instead of relying on the character object
+
+        setTimeout(function(){
+          fight(enemyChoice);
+          storyArea.scrollTo(0,document.body.scrollHeight);
+      }, 750);
+      } else {
+        content = document.createTextNode("Miss!");
+        p.appendChild(content);
+        storyArea.appendChild(p);
+        setTimeout(function(){
+          fight(enemyChoice);  
+          storyArea.scrollTo(0,document.body.scrollHeight);
+      }, 750);
+      }
+     }
 
   /*/////////////////////////////////////////////////////////////////////////////
 *   Make the combat buttons function properly
   *//////////////////////////////////////////////////////////////////////////////
-  function combatID(e){
+  function combatID(e, enemyChoice){
     e = e || window.event;
   var target = e.target || e.srcElement;
-  
-  switch(target.id){
-    case "attack": 
+  //TODO: Make the endCombat function
+  //FIXME: Also figure out how to make the display text not all be on the same line
 
+  switch(target.id){
+    case "melee":
+      loadAttackButtons(enemyIndex);
+    break;
+
+    case "attack":
+      attack(enemyChoice);
+      storyArea.scrollTo(0,document.body.scrollHeight);
+      loadCombatButtons(enemyChoice);
+    break;
+
+    case "critical bash":
+      console.log("Critical Bash");
+    break;
+
+    case "holy strike":
+      console.log("Holy Strike");
+    break;
+
+    case "back":
+    loadCombatButtons(enemyChoice);
     break;
 
     case "magic":  
@@ -411,7 +627,7 @@ usePotion.addEventListener("touchend", e => {
     stimulants.innerHTML = "Stimulants: " + character.stimulants;
     break;
 
-    case "flee":  
+    case "flee":
 
     break;
   }
@@ -419,9 +635,10 @@ usePotion.addEventListener("touchend", e => {
   }
 
   /*/////////////////////////////////////////////////////////////////////////////
-*   Start combat Tutorial
+*   loadCombat prepares the screen for combat, dropping the status bar height
+*   and loading the combat buttons, chooses the enemy you fight and gets the hp
   *//////////////////////////////////////////////////////////////////////////////
-  function combatTutorial(){
+  function loadCombat(){
     if (storyArea.hasChildNodes()){
       storyArea.innerHTML = "";
       choiceLeft.innerHTML = "";
@@ -430,9 +647,42 @@ usePotion.addEventListener("touchend", e => {
 
     statusBar.style.height = "3.5em";
 
-    loadCombatButtons();
+    let enemyChoice = Math.floor((Math.random() * 2));
+      var p = document.createElement("p");
+      var content = "";
 
-    
+      //Resets the enemy health to the max
+      let enemyMaxHp = combat[enemyChoice].maxHP;
+      let enemyHP = combat[enemyChoice].currentHP;
+      enemyHP = enemyMaxHp;
+      
+      enemyStat.maxHP = enemyMaxHp;
+      enemyStat.currentHP = enemyHP;
+
+      enemyHp = enemyStat.currentHP;
+
+
+    switch (enemyChoice){
+      case 0:
+        content = document.createTextNode("A " + combat[enemyChoice].displayName + " oozes up before you!");
+      break;
+
+      case 1:
+        content = document.createTextNode("A " + combat[enemyChoice].displayName + " shambles toward you!");
+      break;
+    }
+     p.appendChild(content);
+     storyArea.appendChild(p);
+    //After loading in the enemy choice, call the fight function, passing in enemyHP & index
+    // that has the enemy try to attack 
+
+    loadCombatButtons(enemyChoice);
+    activeCombat = true; //TODO: Make sure to turn off active combat when enemy dies
+
+    fight(enemyChoice);
+
+    return enemyChoice;
+
   }
 
 //Load in the required JSON files
@@ -491,15 +741,15 @@ usePotion.addEventListener("touchend", e => {
     button.appendChild(text);
     choiceLeft.appendChild(button);
 
-    button.addEventListener("touchend", e => { getID(event); });
+    button.addEventListener("touchend", e => { getStoryID(event); });
 
 }
 
   /*/////////////////////////////////////////////////////////////////////////////
-*   getID grabs the ID of the button from the touchend event
+*   getStoryID grabs the ID of the button from the touchend event
 *   and sends it to the findStory function
   *//////////////////////////////////////////////////////////////////////////////
-    function getID(e){
+    function getStoryID(e){
       e = e || window.event;
     var target = e.target || e.srcElement;
     // console.log(target.id);
@@ -520,7 +770,7 @@ usePotion.addEventListener("touchend", e => {
   *//////////////////////////////////////////////////////////////////////////////
     function findStory(id){
       if (id === "combatTutorial"){
-        combatTutorial();
+       enemyIndex = loadCombat();
       }
       let length = story.length;
       for (let i = 0; i < length; i++){
@@ -557,6 +807,7 @@ usePotion.addEventListener("touchend", e => {
         }
       }
 
+      //FIXME: Figure out why the font isn't staying 20pt when combat starts.
       storyArea_P = document.querySelectorAll("#storyArea p");
       if (modifyFont == 1){
         let length = storyArea_P.length;
@@ -578,7 +829,7 @@ usePotion.addEventListener("touchend", e => {
             button.setAttribute("id", story[storyID].choice[i].id);
             var text = document.createTextNode(story[storyID].choice[i].title);
             button.appendChild(text);
-            button.addEventListener("touchend", e => { getID(event); });
+            button.addEventListener("touchend", e => { getStoryID(event); });
             choiceLeft.appendChild(button);
           }
         } break;
@@ -589,7 +840,7 @@ usePotion.addEventListener("touchend", e => {
             button.setAttribute("id", story[storyID].choice[i].id);
             var text = document.createTextNode(story[storyID].choice[i].title);             
             button.appendChild(text);
-            button.addEventListener("touchend", e => { getID(event); });
+            button.addEventListener("touchend", e => { getStoryID(event); });
             if (i < 1){
               choiceLeft.appendChild(button);
             } else {
@@ -603,7 +854,7 @@ usePotion.addEventListener("touchend", e => {
             var button = document.createElement("button");
             var text = document.createTextNode(story[storyID].choice[i]);
             button.appendChild(text);
-            button.addEventListener("touchend", e => { getID(event); });
+            button.addEventListener("touchend", e => { getStoryID(event); });
             if (i < 2){
               choiceLeft.appendChild(button);
             } else {
@@ -617,7 +868,7 @@ usePotion.addEventListener("touchend", e => {
           var button = document.createElement("button");
           var text = document.createTextNode(story[storyID].choice[i]);
           button.appendChild(text);
-          button.addEventListener("touchend", e => { getID(event); });
+          button.addEventListener("touchend", e => { getStoryID(event); });
           if (i < 2){
             choiceLeft.appendChild(button);
           } else {

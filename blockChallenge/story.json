@@ -102,13 +102,20 @@
   {
     "id": "tutorial",
     "text": [
-      "Tutorial:",
+      "In combat, when you take physical damage, your Stamina Points, or SP are also damaged, representing getting fatigued due to injuries and the strain of battle.",
+      "You have options to use items, attack, cast spells or flee from the battle. Below is a description of the items in your inventory as well as descriptions of your magic and special attacks.",
+      "Items:",
       "Potions: Restore 50 hit points",
       "Ethers: Restore 10 mana points",
       "Stimulants: Restore 15 stamina points",
       "White Gems: 100% chance to flee from any battle (excepting bosses). Consumed on use.",
       "Salves: Removes poison",
-      ""
+      "Spells:",
+      "Searing Light: Deals holy damage to enemies. Extra damage vs undead",
+      "Divine Intervention: Full heal",
+      "Special Attacks:",
+      "Critical Bash: Melee attack with a high critical hit rate",
+      "Holy Strike: Melee attack that deals holy damage. Extra damage vs undead"
     ],
     "choice":[
       {

@@ -2,11 +2,13 @@
     {
         "id": "weakSlime",
         "displayName": "Weak Slime",
+        "undead": false,
         "run": true,
-        "health": 10,
+        "maxHP": 10,
+        "currentHP": 10,
         "mana": 0,
         "defense": 0,
-        "attack": 2,
+        "attack": 8,
 
         "specialAttacks": [
          
@@ -20,11 +22,13 @@
      {
         "id": "zombie",
         "displayName": "Zombie",
+        "undead": true,
         "run": true,
-        "health": 20,
+        "maxHP": 20,
+        "currentHP": 20,
         "mana": 10,
-        "defense": 2,
-        "attack": 4,
+        "defense": 1,
+        "attack": 12,
 
         "specialAttacks": [
          
