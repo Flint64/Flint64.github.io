@@ -628,7 +628,13 @@ usePotion.addEventListener("touchend", e => {
     break;
 
     case "flee":
-
+      let fleeChance = Math.floor(Math.random() * 20) + 1;
+      if (fleeChance <= 10){
+        //flee
+        //endCombat();
+      } else {
+        //don't flee
+      }
     break;
   }
 
@@ -686,13 +692,15 @@ usePotion.addEventListener("touchend", e => {
   }
 
 //Load in the required JSON files
-  var requestURL = 'http://127.0.0.1:5500/story.json';
+  // var requestURL = 'http://127.0.0.1:5500/story.json';
+  var requestURL = 'story.json';
   var storyRequest = new XMLHttpRequest();
   storyRequest.open('GET', requestURL);
   storyRequest.responseType = 'json';
   storyRequest.send();
 
-  var requestURL2 = 'http://127.0.0.1:5500/combat.json';
+  // var requestURL2 = 'http://127.0.0.1:5500/combat.json';
+  var requestURL2 = 'combat.json';
   var combatRequest = new XMLHttpRequest();
   combatRequest.open('GET', requestURL2);
   combatRequest.responseType = 'json';
